@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 class wheatDataset(Dataset):
     def __init__(self, df, image_dir, image_size, mode="train"):
         super().__init__()
-        self.df = df
+        self.df = df.copy()
         self.df["bbox"] = self.df["bbox"].apply(ast.literal_eval)
         self.image_dir = image_dir
         self.image_ids = df["image_id"].unique().tolist()
