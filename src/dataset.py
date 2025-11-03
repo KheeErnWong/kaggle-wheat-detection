@@ -55,7 +55,7 @@ class wheatDataset(Dataset):
             "iscrowd": torch.as_tensor(iscrowd, dtype=torch.int64),
         }
 
-        return image, target_dict
+        return image, target_dict, image_id
 
     def load_image_and_bbox(self, image_id):
         # get image and convert to tensor
